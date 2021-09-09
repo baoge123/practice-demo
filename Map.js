@@ -9,6 +9,7 @@ let actions = new Map([
   ])
   console.log(actions)
     function fun  (state) {
+        
      let arr = actions.get(state) || actions.get('default')
      console.log(arr)
   }
