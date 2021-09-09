@@ -46,8 +46,8 @@ var result = [
 
   // 扁平化数组
   let arr1 = [[1, 2, 8], [3, [4, 9]], [5, 6, 10]];
-  const newArr = arr1.reduce((pre,cur) => {
-    //   pre.concat(cur)
-    Array.isArray(cur)
-    },[])
-  console.log(newArr)
+  const newArr = (arr) => {
+        return arr.reduce((pre,cur)=>pre.concat(Array.isArray(cur)?newArr(cur):cur),[])
+     }
+     console.log(newArr(arr1))
+
