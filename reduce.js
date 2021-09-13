@@ -45,9 +45,15 @@ var result = [
   console.log(res)
 
   // 扁平化数组
-  let arr1 = [[1, 2, 8], [3, [4, 9]], [5, 6, 10]];
+  let arr1 = [[1, 2, 1], [3, [4, 1]], [5, 1, 10]];
   const newArr = (arr) => {
-        return arr.reduce((pre,cur)=>pre.concat(Array.isArray(cur)?newArr(cur):cur),[])
-     }
-     console.log(newArr(arr1))
+  return arr.reduce((pre,cur) => [...new Set(pre.concat(Array.isArray(cur)?newArr(cur):cur))],[])
+  }
+  console.log(newArr(arr1),"arr1")
+
+// 数组项求和
+let number = newArr(arr1).reduce((pre,cur) => {
+    return pre + cur
+})
+  console.log(number,"求和")
 
