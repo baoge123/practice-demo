@@ -1,9 +1,9 @@
 // 递归
-// function sun(num) {
-//     if (num === 1) return 1;
-//     return num + sun(num - 1)
-// }
-// console.log(sun(10))
+function sun(num) {
+    if (num === 1) return 1;
+    return num + sun(num - 1)
+}
+console.log(sun(4),"====")
 
 // 扁平化数组
 /** 
