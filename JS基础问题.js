@@ -11,7 +11,7 @@ let arr = [
 function newArr(arr) {
     // return arr.reduce((pre,cur) => [... new Set(pre.concat(Array.isArray(cur)? newArr(cur):cur))],[])
     let a = []
-    arr.reduce((pre, cur) =>{ a = [...new Set(pre.concat(Array.isArray(cur) ? newArr(cur) : cur))]}, [])
+    arr.reduce((pre, cur) => a = [...new Set(pre.concat(Array.isArray(cur) ? newArr(cur) : cur))], [])
     return a
 }
 console.log(newArr(arr))
