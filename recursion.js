@@ -6,6 +6,14 @@ function sun(num) {
 console.log(sun(4),"====")
 
 // 扁平化数组
+// console.log(arr.flat(2),"======================")
+
+//  function flatten(arr) {
+//     while (arr.some(item => Array.isArray(item))) {
+//         arr = [].concat(...arr);
+//     }
+//     return arr;
+// }
 /** 
 function flatten (oldArr) {
     var newArr = [] 
