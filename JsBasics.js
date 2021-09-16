@@ -42,7 +42,19 @@ console.log(num, "num")
       timer = setTimeout(() => {
         fn.apply(context, args);
       }, wait);
+      
     };
+  }
+  function debounce (fn ,wait = 1000) {
+    let timer ; // 缓存一个定时器对象
+    return function (...args) {
+      // 当触发时定时器对象存在，则清除重新计时
+      timer && clearTimeout(timer)
+      timer = setTimeout(() => {
+        fn.apply(this,args) // 需要防抖的操作
+        timer = null
+      }, wait);
+    }
   }
   /**
    * 函数节流
@@ -60,11 +72,20 @@ console.log(num, "num")
       }, wait);
     };
   }
+  function throttle (fn, wait = 1000) {
+    let timer;
+    return function (...args) {
+      if(flag) return
+      timer = setTimeout(() => {
+        fn.apply(this,args)
+        timer = null
+      }, wait);
+    }
+  }
   function li () {
       console.log("====")
   }
-
 //   btnThrottle: throttle(function () {
 //     this.fn()
 //   }, 2000),
-throttle(li(),2000)
+throttle(li,2000)
