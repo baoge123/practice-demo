@@ -2,6 +2,10 @@
 !"Lydia";
 console.log(+true)
 
+let n1 = 0.1,
+    n2 = 0.2
+console.log((n1 + n2).toFixed(2))
+
 let arr = [
     [1, 2, 1],
     [3, [4, 1]],
@@ -42,7 +46,7 @@ console.log(num, "num")
       timer = setTimeout(() => {
         fn.apply(context, args);
       }, wait);
-      
+
     };
   }
   function debounce (fn ,wait = 1000) {
@@ -82,6 +86,20 @@ console.log(num, "num")
       }, wait);
     }
   }
+  // 时间戳方式
+  function throttle(fn,time){
+    let pre = Date.now();   //保存初始时间
+    return function(){
+      let cur = Date.now();  //保存执行函数体的时间
+      if(cur-pre>time){		//计算时间间隔是否满足
+        setTimeout(()=>{
+          fn.apply(this,arguments);
+          pre=cur;		//更新上一次的时间
+        },time)
+      }
+    }
+  }
+  
   function li () {
       console.log("====")
   }
